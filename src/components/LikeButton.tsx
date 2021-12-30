@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import useURLLoader from "../hooks/useURLLoader"
 
 const LikeButton:React.FC = () => {
     const [like, setLike] = useState(0)
     const [onoff, setOnoff] = useState(true)
+    const [data, isLoading] = useURLLoader('https://dog.ceo/api/breeds/image/random', [onoff])
     useEffect(()=>{
         document.title = `点击了${like}次`
     })
@@ -12,8 +14,9 @@ const LikeButton:React.FC = () => {
           {like} 👍
         </button>
         <button onClick={()=>{setOnoff(!onoff)}}>
-          {onoff ? 'on' : 'off'}
+          Refresh Dog Images
         </button>
+        {isLoading ? <p>🐶 isLoading</p> : <div><img src={data.message} alt="" width="300"/></div> }
         </>
     )
 }

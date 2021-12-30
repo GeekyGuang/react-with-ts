@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react"
+
+import useMousePosition from "../hooks/useMousePosition"
 
 const MouseTracker:React.FC = () => {
-    const [position, setPosition] = useState({x:0, y:0})
-    useEffect(()=>{
-        console.log("I'm in")
-        const updatePosition = (e: MouseEvent) => {
-            setPosition({x: e.clientX, y: e.clientY})}
-
-        document.addEventListener('click', updatePosition)
-
-        return () => {
-            console.log("let's remove")
-            document.removeEventListener('click', updatePosition)
-        }
-    }, [])
+    const position = useMousePosition()
     return (
+        <>
         <p>x: {position.x}, y: {position.y}</p>
+        </>
     )
 }
 
