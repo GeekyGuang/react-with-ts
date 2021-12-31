@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import useURLLoader from "../hooks/useURLLoader"
 
 const LikeButton:React.FC = () => {
     const [like, setLike] = useState(0)
     const [onoff, setOnoff] = useState(true)
     const [data, isLoading] = useURLLoader('https://dog.ceo/api/breeds/image/random', [onoff])
+     
+    const likeRef = useRef(0)
+    
+    
+
     useEffect(()=>{
         document.title = `点击了${like}次`
     })
