@@ -1,20 +1,21 @@
 import { useRef, useState } from "react"
+import { isConstructorDeclaration } from "typescript"
 
 const LogButtonClicks = () => {
-    const [clicks, setClicks] = useState(0)
-    const countRef = useRef(0)
+    const [count, setCount] = useState(0)
+    // const countRef = useRef(0)
 
     const handle = () => {
-        setClicks(clicks+1)
-        countRef.current++;
-        console.log(`Clicked ${countRef.current} times`)
+        setCount(count + 1)
+        // countRef.current++;
+        console.log(`Clicked ${count} times`)
     }
 
     console.log('I rendered!')
+    console.log(count)
 
     return (
         <>
-        <p>{clicks}</p>
     <button onClick={handle}>Click me</button>
     
         </>
