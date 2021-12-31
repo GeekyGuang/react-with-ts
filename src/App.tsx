@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css';
-import LikeButton from './components/LikeButton';
-import MouseTracker from './components/MouseTracker';
-import LogButtonClicks from './components/LogButtonClicks';
+import Stopwatch from './components/Stopwatch';
 
 function App() {
   return (
     <div className="App">
 
-      <MouseTracker />
-      <LogButtonClicks />
+      <Stopwatch></Stopwatch>
     </div>
   );
 }
